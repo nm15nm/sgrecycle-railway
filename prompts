@@ -1,0 +1,180 @@
+czesc, chce stworzyc strone internetowa przystosowana do SEO dla singapurskiej firmy "SGRecycle" ktora zajmuje sie sprzedaza ekologicznych maszyn do recyglingu butelek plastikowych i makulatury. Strona ma miec piekna sekcje hero na srodku z animacja procesu recyklingu oraz sekcja blog w ktorej bedzie mozna dodawac posty poprzez strapi i tylko to chcemy robic przez strapi zeby nie bylo z nim problemow. Przygotuj mi dokladna liste promptow ktore bede mogl po kolei wklejac w claude sonnet 4 i bedzie w stanie ze mna przygotowac taka strone (technologie mozesz wybrac do frontu zeby byla bardzo ladna ta strona i strapi ale tylko z dodawaniem postow do bloga zeby nie bylo z nim problemow i konfiguracje strapi w ogole zrob osobno i sie na niej skup zeby napewno dobrze dzialala) oraz instrukcje do promptow co po nich sprawdzac czy sie zrobilo itd. Dodatkowo masz plik SG recycle Brand intendity na poczatku sie z nim zapoznac zeby wszystko bylo spojne z wymaganiami klienta.
+
+##################################################################################################################
+
+Front-end (Next.js + TailwindCSS + Framer Motion + GSAP)
+
+Prompt 1 – Project Initialization
+
+Create a new Next.js 14 project named "sgrecycle-site" with TailwindCSS, ESLint, Prettier, and TypeScript.  
+Optimize the project for SEO (meta tags, Open Graph defaults, sitemap generation).  
+Install Framer Motion and GSAP for animations.  
+Configure Tailwind theme with SG Recycle brand colors:  
+- Eco Green #6CBF3F  
+- Deep Blue #004F9E  
+- Sky Blue #3FA9F5  
+- Neutral Gray #D9D9D9  
+Set the default font to a rounded yet bold sans-serif, matching the brand identity.  
+
+
+Check after: Project runs locally without errors, Tailwind colors and font are applied globally.
+
+##################################################################################################################
+
+Prompt 2 – Global Layout & SEO Metadata
+
+Create a global `Layout` component with a header, footer, and dynamic `<Head>` tags for SEO.  
+Header: SG Recycle hexagon logo, navigation links (Home, Blog, Contact).  
+Footer: contact info, social icons, copyright.  
+Ensure global styles use Tailwind config with brand colors and font.  
+
+
+Check after: Navigation works, SEO tags render correctly, colors match brand palette.
+
+##################################################################################################################
+
+Prompt 3 – Hero Section with Recycling Animation
+
+Build a Hero section containing:  
+- Large headline: "Reimagining Waste for a Sustainable Future"  
+- Subheadline from the SG Recycle mission statement.  
+- GSAP animation loop showing plastic bottles and paper → recycling process → new products.  
+- CTA button "Partner with Us" (Deep Blue background, Eco Green hover).  
+Center vertically and horizontally on all devices, responsive layout.  
+
+
+Check after: Animation loops smoothly, CTA works, layout is centered.
+
+##################################################################################################################
+
+Prompt 4 – Impact Counter
+
+Add an "Impact Counter" section below the Hero, using Framer Motion to animate numbers from 0 to target values:  
+- Waste Diverted (tons)  
+- Communities Served  
+- Machines Deployed  
+Use Eco Green for numbers, Deep Blue for labels.  
+
+
+Check after: Numbers animate correctly, section scales well on mobile.
+
+##################################################################################################################
+
+Prompt 5 – Blog Listing Page
+
+Create a Blog listing page (`/blog`) that fetches posts from a Strapi backend (use placeholder API for now).  
+Each post card: featured image, title, short excerpt, "Read more" button.  
+Responsive grid layout: 3 columns on desktop, 1 on mobile.  
+Style using brand colors and rounded bold typography.  
+
+
+Check after: Layout is responsive, placeholder data loads, styling matches brand.
+
+
+##################################################################################################################
+
+Prompt 6 – Single Blog Post Page
+
+Create a dynamic blog post page `/blog/[slug]` that fetches post content by slug from Strapi API.  
+Display: featured image, title, publish date, full content (styled for readability), and social sharing buttons.  
+
+
+Check after: Dynamic routing works, content renders correctly, sharing buttons link properly.
+
+
+##################################################################################################################
+
+Prompt 7 – Contact Page
+
+Create a Contact page with:  
+- SG Recycle contact details (from brand identity).  
+- Form with Name, Email, Message.  
+- Client-side validation and success confirmation.  
+
+
+Check after: Validation prevents empty fields, form submits successfully.
+
+
+##################################################################################################################
+
+Prompt 8 – Production Build & SEO
+
+Prepare the Next.js project for production with full SEO optimization:  
+- Dynamic sitemap.xml and robots.txt  
+- All images use next/image with descriptive alt text  
+- Preload critical fonts and resources  
+Run a production build to ensure no errors.  
+
+
+Check after: Sitemap generates, SEO checks pass, build completes.
+
+
+##################################################################################################################
+
+Backend – Strapi (Only Blog Functionality)
+
+Prompt 9 – Strapi Setup
+
+Set up a Strapi v4 project named "sgrecycle-cms" for blog functionality only.  
+Install GraphQL plugin and enable REST API.  
+Remove or disable all default collections except "Posts".  
+
+
+Check after: Strapi runs locally, GraphQL and REST endpoints are available.
+
+
+##################################################################################################################
+
+Prompt 10 – Post Collection Type
+
+In Strapi, create a "Post" collection with fields:  
+- Title (text, required)  
+- Slug (UID, required)  
+- Excerpt (text, max 300 chars)  
+- Content (rich text)  
+- Featured Image (media)  
+- Published Date (date)  
+Enable public API read access for published posts only.  
+
+
+Check after: Content Manager shows fields, public API returns published posts.
+
+
+##################################################################################################################
+
+Prompt 11 – API Permissions
+
+Configure Strapi permissions:  
+- Public role can only read published posts.  
+- All other endpoints are secured.  
+Test the `/api/posts` endpoint to verify it returns correct data.  
+
+
+Check after: Unauthorized requests to private endpoints are blocked.
+
+
+##################################################################################################################
+
+Prompt 12 – SEO for Posts
+
+Install and configure a Strapi SEO plugin to allow setting meta title, meta description, and OG image per post.  
+Ensure this data is available in the API output.  
+
+
+Check after: Posts have editable SEO fields, API returns SEO metadata.
+
+
+##################################################################################################################
+
+Prompt 13 – Strapi Deployment
+
+Provide instructions to deploy Strapi CMS on Ubuntu 24.04 VPS with PM2 and Nginx reverse proxy.  
+Enable CORS for the Next.js frontend domain.  
+Set up SSL with Let's Encrypt.  
+
+
+Check after: Strapi is live, secure (HTTPS), and accessible from the frontend.
+
+
+##################################################################################################################
+##################################################################################################################
