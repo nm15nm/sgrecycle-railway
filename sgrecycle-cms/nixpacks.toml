@@ -1,6 +1,9 @@
 [phases.build]
 cmds = [
-    "npm ci",
+    "rm -rf node_modules/.cache",
+    "rm -rf .npm",
+    "npm cache clean --force",
+    "npm install --frozen-lockfile --no-optional --no-fund",
     "npm run build"
 ]
 
