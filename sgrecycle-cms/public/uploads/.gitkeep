@@ -1,0 +1,6 @@
+# Uploads Directory
+
+This directory is required by Strapi for file uploads.
+Railway needs this folder to exist in the repository.
+
+Keep this file so Git tracks the empty directory.
